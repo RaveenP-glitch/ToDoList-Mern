@@ -51,11 +51,11 @@ router.route("/update/:id").put(async(req, res)=>{
     }
     const update = await MyList.findByIdAndUpdate(userId, updateTask).then(()=>{
 
-        res.status(200).send({status: "User updated", user: update})
+        res.status(200).send({status: "Task updated"})
 
     }).catch((err)=>{
         console.log(err);
-        res.status(500).send({status: "Error with updating data", error: err.message});
+        res.status(500).send({status: "Error with updating task", error: err.message});
     });
 
 
@@ -68,7 +68,7 @@ router.route("/delete/:id").delete(async(req,res)=>{
     let userId = req.params.id;
 
     await MyList.findByIdAndDelete(userId).then(()=>{
-        res.status(200).send({status: "User deleted"});
+        res.status(200).send({status: "Task deleted"});
 
     }).catch((err)=>{
         console.log(err.message);
@@ -84,7 +84,7 @@ router.route("/get/:id").delete(async(req,res)=>{
     let userId = req.params.id;
 
     const singletask = await MyList.findById(userId).then(()=>{
-        res.status(200).send({status: "User fetched",task: singletask});
+        res.status(200).send({status: "Task fetched",task: singletask});
 
     }).catch((err)=>{
         console.log(err.message);

@@ -25,9 +25,9 @@ connection.once("open", () => {
 
 })
 
-const takslistRouter = require("./routes/newtasks.js");
+const tasklistRouter = require("./routes/newtasks.js");
 
-app.use("/tasks",studentRouter);
+app.use("/tasks",tasklistRouter);
 
 app.listen(PORT, ()=>{
     console.log(`Server is up and running on port: ${PORT}`)
