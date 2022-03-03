@@ -14,6 +14,8 @@ const tasklistSchema = new Schema({
         required: true
     }
 
+},{
+    timestamps:true
 })
 
 const TaskList = mongoose.model("TaskList",tasklistSchema);

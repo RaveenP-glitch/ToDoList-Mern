@@ -26,7 +26,7 @@ function Form() {
 
         axios.post("http://localhost:8070/tasks/add", addTask)
             .then(() => {
-                alert("Task Added");
+                // alert("Task Added");
                 getTasks()
 
 
@@ -49,7 +49,8 @@ function Form() {
           console.log(res);
           setTasks(res.data);
           setStatus(true);
-        
+          renderTasks();
+
         }).catch((err)=>{
           alert(err.message);
         })
@@ -62,9 +63,15 @@ function Form() {
         if(status){
         console.log(tasks[0]);
         console.log(tasks[1]);
+
+        let sortedTasks = [...tasks];
+
+        sortedTasks = sortedTasks.sort((a, b)=>{
+            return new Date(b.createdAt) - new Date(a.createdAt)
+        })
         
-        return tasks.map((item) =>{
-          return <Task id={item._id} heading={item.title} desc = {item.description} />
+        return sortedTasks.map((item) =>{
+          return <Task id={item._id} heading={item.title} desc = {item.description} getTasks={getTasks} />
         })
         
       }

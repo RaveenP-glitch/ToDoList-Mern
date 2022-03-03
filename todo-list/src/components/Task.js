@@ -28,7 +28,9 @@ function Task(props) {
 
     axios.delete(`http://localhost:8070/tasks/delete/${props.id}`)
         .then(() => {
-            alert("Task Deleted");
+           props.getTasks();
+           
+            
            
         }).catch((err) => {
             alert(err)
@@ -42,8 +44,7 @@ function Task(props) {
 
   return (
     <div className='singleTask'>
-      
-      <p style={{ fontWeight: "bold", textAlign: "left" }} id="head">{props.id}</p>
+    
       <p style={{ fontWeight: "bold", textAlign: "left" }} id="head">{props.heading}</p>
 
       <p className='bodytext' style={{ textAlign: "left", marginTop: "-5px", padding: "0px" }} id="body">{props.desc}</p>
