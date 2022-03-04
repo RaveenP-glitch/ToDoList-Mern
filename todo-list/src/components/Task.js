@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-function Task(props) {
+function Task(props,editTodos,getTasks) {
 
   
 
@@ -29,12 +29,6 @@ function Task(props) {
   //     body.innerHTML=props.desc;
   //   }
   // }
-
-
-  function runUpdate(data){
-    props.editTodos(data);
-
-  }
 
   
   function deleteData() {
@@ -70,7 +64,7 @@ function Task(props) {
     
       <div className='button-group'>
         <button type="update" class="btn btn-outline-success"
-          style={{ fontSize: "10px", borderRadius:"15px", }} >
+          style={{ fontSize: "10px", borderRadius:"15px", }} onClick={()=>{editTodos(props)}}>
           Update
         </button>
         <button type="delete" class="btn btn-outline-danger"

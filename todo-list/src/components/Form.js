@@ -15,7 +15,7 @@ function Form() {
     const [editTodoData, setEditTodoData] = useState(null);
 
 
-    function sendData(e) {
+    async function sendData(e) {
         e.preventDefault();
 
         const addTask = {
@@ -26,14 +26,25 @@ function Form() {
 
         console.log(addTask);
 
-        axios.post("http://localhost:8070/tasks/add", addTask)
-            .then(() => {
-                // alert("Task Added");
-                getTasks()
+        // axios.post("http://localhost:8070/tasks/add", addTask)
+        //     .then(() => {
+        //         // alert("Task Added");
+        //         getTasks()
 
-            }).catch((err) => {
-                alert(err)
-            })
+        //     }).catch((err) => {
+        //         alert(err)
+        //     })
+
+          //Only post if editTodoData is not provided
+          if(!editTodoData){
+            await axios.post("http://localhost:8070/tasks/add", addTask)
+            getTasks();
+        }else{
+            //Update the data if we do have the ediTodoData
+            await axios.post(`http://localhost:8070/tasks/update/${editTodoData._id}`, editTodoData)
+            getTasks();
+        }
+
 
     }
 
@@ -50,12 +61,9 @@ function Form() {
     },[editTodoData])
 
 
-    
-
-
-    function editTodos(todosData){
+    const editTodos  = (todosData) =>{
+        console.log("editfunc: "+todosData);
         setEditTodoData(todosData);
-        console.log("editeddata: "+editTodoData);
     }
 
     useEffect(()=>{
@@ -91,7 +99,7 @@ function Form() {
         })
         
         return sortedTasks.map((item) =>{
-          return <Task id={item._id} heading={item.title} desc = {item.description} getTasks={getTasks} />
+          return <Task id={item._id} heading={item.title} desc = {item.description} getTasks={getTasks} editTodos={editTodos}/>
         })
         
       }
@@ -113,6 +121,7 @@ function Form() {
                         class="form-control"
                         id="title"
                         placeholder="My Title"
+                        value={title}
                         onChange={(e) => {
                             setTitle(e.target.value);
                         }}
@@ -128,6 +137,7 @@ function Form() {
                         id="description"
                         rows="3"
                         placeholder="My Description"
+                        value={description}
                         onChange={(e) => {
                             setDescription(e.target.value);
                         }}
