@@ -7,21 +7,34 @@ import axios from 'axios';
 
 function Task(props) {
 
+  
+
+
   // function MarkDone() {
   //   // Get the checkbox
   //   var checkBox = document.getElementById("Check1");
   //   // Get the output text
-  //   var text1 = document.getElementById("head");
-  //   var text2 = document.getElementById("body");
+  //   var head = document.getElementById("head");
+  //   var body = document.getElementById("body");
+  //   let text1 = head.innerHTML;
+  //   let text2 = body.innerHTML;
+  //   console.log("text2: ");
   
   //   // If the checkbox is checked, display the output text
   //   if (checkBox.checked == true){
-  //     text1.style.display = "none";
+  //     head.innerHTML=text1.strike();
+  //     body.innerHTML=text2.strike();
   //   } else {
-  //     text2.style.display = "none";
+  //     head.innerHTML=props.heading;
+  //     body.innerHTML=props.desc;
   //   }
   // }
 
+
+  function runUpdate(data){
+    props.editTodos(data);
+
+  }
 
   
   function deleteData() {
@@ -42,6 +55,7 @@ function Task(props) {
 
 
 
+
   return (
     <div className='singleTask'>
     
@@ -56,7 +70,7 @@ function Task(props) {
     
       <div className='button-group'>
         <button type="update" class="btn btn-outline-success"
-          style={{ fontSize: "10px", borderRadius:"15px", }}>
+          style={{ fontSize: "10px", borderRadius:"15px", }} >
           Update
         </button>
         <button type="delete" class="btn btn-outline-danger"

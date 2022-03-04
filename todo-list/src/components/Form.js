@@ -12,6 +12,8 @@ function Form() {
     const [tasks, setTasks] = useState({});
     const [status, setStatus] = useState(false);
 
+    const [editTodoData, setEditTodoData] = useState(null);
+
 
     function sendData(e) {
         e.preventDefault();
@@ -29,7 +31,6 @@ function Form() {
                 // alert("Task Added");
                 getTasks()
 
-
             }).catch((err) => {
                 alert(err)
             })
@@ -37,6 +38,25 @@ function Form() {
     }
 
 
+
+
+
+    useEffect(() =>{
+        if(editTodoData){
+            setTitle(editTodoData.title ? editTodoData.title : '')
+            setDescription(editTodoData.description ? editTodoData.description : '')
+        }
+
+    },[editTodoData])
+
+
+    
+
+
+    function editTodos(todosData){
+        setEditTodoData(todosData);
+        console.log("editeddata: "+editTodoData);
+    }
 
     useEffect(()=>{
         
