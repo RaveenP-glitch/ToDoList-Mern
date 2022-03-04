@@ -64,6 +64,7 @@ function Form() {
     const editTodos  = (todosData) =>{
         console.log("editfunc: "+todosData);
         setEditTodoData(todosData);
+     
     }
 
     useEffect(()=>{
