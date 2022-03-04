@@ -66,8 +66,25 @@ eg: axios.delete(`http://localhost:8070/tasks/delete/${props.id}`)<br/>
 
 
 const PORT = process.env.PORT || 8070;
+PORT 8070 is used in localhost or any available PORT for other hosting services.
 
 //DATABASE<br/>
 MongoDB 5.0<br/>
 MongoDB Atlas is accessed through the application.<br/>
 Cloud based DB <br/>
+
+Backend packages used:<br/>
+Mongoose,
+cors,
+nodemon,
+express,
+dotenv
+
+
+//FOR FRONTEND<br/>
+To use install below packages:<br/>
+React boostrap,<br/>
+<i>npm install react-bootstrap bootstrap@5.1.3</i><br/>
+Axios,<br/>
+<i>npm install axios</i><br/>
+
