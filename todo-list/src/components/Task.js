@@ -30,7 +30,6 @@ function Task(props, editTodos) {
   //   }
   // }
 
-dfd
 
   function deleteData() {
 
