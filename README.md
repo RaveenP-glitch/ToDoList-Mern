@@ -67,4 +67,7 @@ eg: axios.delete(`http://localhost:8070/tasks/delete/${props.id}`)<br/>
 
 const PORT = process.env.PORT || 8070;
 
-
+//DATABASE<br/>
+MongoDB 5.0<br/>
+MongoDB Atlas is accessed through the application.<br/>
+Cloud based DB <br/>
