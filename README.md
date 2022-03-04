@@ -30,7 +30,7 @@ The response will look like this.
     {
         "_id": "6221eb265f51b67d5541355a",
         "title": "Task 2",
-        "description": "sdfsdf",
+        "description": "My task 2",
         "createdAt": "2022-03-04T10:34:14.206Z",
         "updatedAt": "2022-03-04T10:34:14.206Z",
         "__v": 0
@@ -38,7 +38,7 @@ The response will look like this.
     {
         "_id": "6221ed765f51b67d5541356e",
         "title": "Task 3",
-        "description": "saeewc",
+        "description": "My task 3",
         "createdAt": "2022-03-04T10:44:06.879Z",
         "updatedAt": "2022-03-04T10:44:06.879Z",
         "__v": 0
